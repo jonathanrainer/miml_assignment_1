@@ -3,11 +3,12 @@ function F = lvderivs(co_ords)
 % of the two functions in our Lotke-Volterra System
     
     % Constants
+    global a b c d
     a = 1.0;
     b = 2.0;
     c = 0.5;
     d = 3.0;
-    
+   
     % Recurring parts 
     xy = co_ords(1)*co_ords(2);
     
