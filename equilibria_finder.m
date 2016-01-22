@@ -13,7 +13,8 @@ round_threshold, rounded_dec_places, rand_min, rand_max)
         % help dialogs.
         options = optimset('Display','Off');
         % Find a result of the equation
-        eq_temp = fsolve(@lvderivs, rand(1,2)*5, options);
+        eq_temp = fsolve(@lvderivs, ...
+            (rand_max - rand_min).*rand(1,2) + rand_min, options);
         % Check if the fractional part of what's been found is 
         % large enough to merit consideration
         if abs(eq_temp - fix(eq_temp)) < round_threshold
