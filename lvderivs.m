@@ -5,9 +5,9 @@ function F = lvderivs(co_ords)
     % Constants
     global a b c d
     a = 1.0;
-    b = 2.0;
+    b = 0.75;
     c = 0.5;
-    d = 3.0;
+    d = 0.8;
    
     % Recurring parts 
     xy = co_ords(1)*co_ords(2);
