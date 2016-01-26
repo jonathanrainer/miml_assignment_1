@@ -9,7 +9,7 @@ function [] = phase_portrait(deriv_func, x_range, y_range, num_points)
     u = zeros(size(x));
     v = zeros(size(x));
     for i = 1:numel(x)
-        derivs = deriv_func([x(i), y(i)]);
+        derivs = deriv_func(0, [x(i), y(i)]);
         u(i) = derivs(1);
         v(i) = derivs(2);
     end
