@@ -5,7 +5,7 @@ function sols = euler_method(deriv_function, step_size, time_limit, ...
     global d c;
     iteration_number = ceil(time_limit/step_size);
     sols = zeros(iteration_number,3);
-    sols(1,:) = [1,d/c,y_start];
+    sols(1,:) = [0,d/c,y_start];
     for i=2:iteration_number
         derivs = deriv_function(sols(i-1,2:3));
         sols(i,:) = [sols(i-1)+step_size, sols(i-1,2) + ...
