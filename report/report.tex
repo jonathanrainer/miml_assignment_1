@@ -215,12 +215,70 @@
 			\item 
 				\begin{enumerate}[label=\roman*)]
 					\item Modify the model so that, at least for some set of biological meaningful parameter values, it has a linearly stable strictly positive equilibrium. 
+					
+					The model will be modified to limit the growth of the prey population (more is explained in the next part). Suffice to say that the modification is to replace the exponential growth term in the current model with the logistic equation thus:
+					
+					$$
+					x' = \dfrac{dx}{dt} = ax\left(1-\dfrac{x}{K}\right) - bxy ; \quad y' = \dfrac{dy}{dt} = cxy - dy
+					$$
+					
+					Where $K$ is the carrying capacity of the population of prey.
+					
 					\item Explain what the modification represents biologically.
+					
+					Biologically this means that you're getting rid of the odd assumption that in the absence of a predator species the prey will grow without limit. With this modification it takes into account the fact that the environment within which the prey live can only support up to a certain amount of prey and so saturates the first term at this carrying capacity $K$. In other words if the population grows beyond the limit set by $K$ then the rate of change evaluates to a negative amount so the population cannot grow beyond the size of $K$. This introduces a linearly stable fixed point which points to the co-existence of both species under this model.
+					
 				\end{enumerate}
 			\item Show either algebraically or numerically that there is a linearly stable strictly positive equilibrium in your revised model.
+			
+			Using the machinery we've already established we can fairly easily show that the equilibrium required does indeed exist. In the first instance if we form the equations for the $\dot{x}$ null-clines we see the following:
+			
+			$$
+			0 = ax\left(1-\dfrac{x}{K}\right) - bxy \implies x\left(a-\dfrac{ax}{K} - by\right) = 0 \implies x = 0 \quad \text{ or} 
+			$$
+			$$
+			\left(a-\dfrac{ax}{K} - by\right) = 0 \implies bKy = aK-ax \implies y = \frac{a}{b} - \frac{ax}{bK} = \dfrac{a}{b}\left(1-\frac{x}{K}\right)
+			$$
+			
+			and similarly for the $\dot{y}$ null-clines:
+			
+			$$
+			0 = cxy - dy = y(cx -d) \implies y = 0 \quad \text{ or } \quad x = \frac{d}{c}
+			$$
+			
+			Now the fixed points are at $(0,0)$ and $\left(\dfrac{d}{c}, \dfrac{a}{b}\left(1-\dfrac{d}{Kc}\right)\right)$
+			
+			Now the Jacobian is the following 
+			
+			$$
+			J(x,y) = \begin{bmatrix}
+				a(1-x) - \dfrac{2ax}{K}-by & -bx \\
+				cy & cx - d 
+			\end{bmatrix}
+			$$
+			
+			Now the first thing to spot is if we evaluate this at the non-trivial fixed point the bottom right entry will be 0. Which means that the trace will only recieve a contribution from the upper left term. Now if we evaluate this we see the following:
+			
+			$$
+			a\left(1 - \frac{d}{c}\right) - \dfrac{2ad}{cK} - a\left(1-\dfrac{d}{Kc}\right) = a - \dfrac{ad}{c} - \dfrac{2ad}{cK} - a + \dfrac{ad}{cK} = -\dfrac{ad}{c}\left(1 + \dfrac{1}{K}\right)
+			$$
+			
+			Now this term will always be negative due to the restrictions on the constants we can choose. So we'll always have a strictly negative trace. Now considering the determinant we know that because the bottom right entry is $0$ the determinant $\Delta$ is equal to $bcxy$. Now since $x$ and $y$ are both positive as this system models physical phenomena this term is positive so we have a positive determinant and a negative trace which leads to the fixed point is stable for any choice of parameter values. This can be seen from the plot included below in Figure \ref{fig:linearly_stable_plot} which shows several trajectories converging onto the non-trivial stable fixed point, plotted using the same tools as the other phase plots but with a new derivative function.
+			
+			\begin{figure}[h]
+				\begin{center}
+					\includegraphics[width=5in]{linearly_stable_fixed_point_plot.png}
+				\end{center}
+				\caption{A plot for the new dynamical system with chosen parameter values, showing that all the trajectories converge to the stable fixed point, indicating a co-existence of the two species.}
+				\label{fig:linearly_stable_plot}
+			\end{figure}
+			
 			\item 
 				\begin{enumerate}[label=\roman*)]
 					\item Using a numerical method, calculate the elasticity of the linearly stable strictly positive equilibrium point, for some chosen set of parameter values.
+					
+					
+					
 					\item If possible, confirm your result numerically.
 				\end{enumerate} 
 			
@@ -304,6 +362,16 @@
 			\end{framed}
 			\caption{This code automates plotting the Euler approximation against the \texttt{ode45} output to see how they compare for decreasing step size.}
 			\label{fig:euler_ode45_compare_code}
+		\end{figure}
+		
+		\begin{figure}[h]
+			\begin{framed}
+				\begin{center}
+					\inputminted[]{matlab}{../new_lvderivs.m}
+				\end{center}
+			\end{framed}
+			\caption{This code calculates the new derivative function with the added carrying capacity scaling to introduce the linearly stable fixed point.}
+			\label{fig:new_lvderivs_code}
 		\end{figure}
 		
 		

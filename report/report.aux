@@ -16,23 +16,27 @@
 \newlabel{RF3}{7}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces A selection of plots showing the effect of decreasing the step size in the Euler method using \texttt  {ode45} as a comparison.}}{7}}
 \newlabel{fig:ode45_euler_compare_plot}{{7}{7}}
-\@writefile{toc}{\contentsline {chapter}{Appendices}{9}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Programming Code}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces A plot for the new dynamical system with chosen parameter values, showing that all the trajectories converge to the stable fixed point, indicating a co-existence of the two species.}}{9}}
+\newlabel{fig:linearly_stable_plot}{{8}{9}}
+\@writefile{toc}{\contentsline {chapter}{Appendices}{10}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Programming Code}{11}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces The definition of the \texttt  {lvderivs} function is relatively simple it just sets up the parameters, factors out some recurring parts and then computes the derivatives.}}{10}}
-\newlabel{fig:lvderivs}{{A.1}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces The code to generate the phase portrait displayed in Figure 2\hbox {}. The code simply generates the required vectors and then computes the rate of change at each point and uses the quiver command to automate all the plotting.}}{11}}
-\newlabel{fig:phase_plane_plotting_code}{{A.2}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces This code simplifies repeatedly running \texttt  {fsolve} but also allows us to check for duplicates when the repeated runs are aggregated. The secondary function allows for this by checking whether what exists is within a similarity threshold and if so ignoring it as a new fixed point. This allows us to account for the situation where you get several roots occuring within a very small interval. This option can be removed by setting the threshold to 0 of course.}}{12}}
-\newlabel{fig:equilibria_finder_code}{{A.3}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces This code automates the plotting of several ODE45 outputs, over multiple time spans and multiple initial starting values of $y$, the $x$-coordinate already being fixed to lie on the given null-cline.}}{13}}
-\newlabel{fig:plotting_code}{{A.4}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces This code automates the plotting of a phase portrait with the associated trajectories, it also uses ODE45 and marks the beginning and end of the trajectories as it appears on the diagram.}}{13}}
-\newlabel{fig:phase_portrait_trajectories_code}{{A.5}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.6}{\ignorespaces This code simply automates the plotting of multiple phase portraits using the \texttt  {subplot} commands.}}{14}}
-\newlabel{fig:multi_phase_portrait_plotting_code}{{A.6}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.7}{\ignorespaces This code is an implementation of the Euler method which first sets the starting values in a matrix and then iterates finding the derivative and predicting the next point in the function.}}{14}}
-\newlabel{fig:euler_method_code}{{A.7}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.8}{\ignorespaces This code automates plotting the Euler approximation against the \texttt  {ode45} output to see how they compare for decreasing step size.}}{15}}
-\newlabel{fig:euler_ode45_compare_code}{{A.8}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces The definition of the \texttt  {lvderivs} function is relatively simple it just sets up the parameters, factors out some recurring parts and then computes the derivatives.}}{11}}
+\newlabel{fig:lvderivs}{{A.1}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces The code to generate the phase portrait displayed in Figure 2\hbox {}. The code simply generates the required vectors and then computes the rate of change at each point and uses the quiver command to automate all the plotting.}}{12}}
+\newlabel{fig:phase_plane_plotting_code}{{A.2}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces This code simplifies repeatedly running \texttt  {fsolve} but also allows us to check for duplicates when the repeated runs are aggregated. The secondary function allows for this by checking whether what exists is within a similarity threshold and if so ignoring it as a new fixed point. This allows us to account for the situation where you get several roots occuring within a very small interval. This option can be removed by setting the threshold to 0 of course.}}{13}}
+\newlabel{fig:equilibria_finder_code}{{A.3}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces This code automates the plotting of several ODE45 outputs, over multiple time spans and multiple initial starting values of $y$, the $x$-coordinate already being fixed to lie on the given null-cline.}}{14}}
+\newlabel{fig:plotting_code}{{A.4}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces This code automates the plotting of a phase portrait with the associated trajectories, it also uses ODE45 and marks the beginning and end of the trajectories as it appears on the diagram.}}{14}}
+\newlabel{fig:phase_portrait_trajectories_code}{{A.5}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.6}{\ignorespaces This code simply automates the plotting of multiple phase portraits using the \texttt  {subplot} commands.}}{15}}
+\newlabel{fig:multi_phase_portrait_plotting_code}{{A.6}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.7}{\ignorespaces This code is an implementation of the Euler method which first sets the starting values in a matrix and then iterates finding the derivative and predicting the next point in the function.}}{15}}
+\newlabel{fig:euler_method_code}{{A.7}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.8}{\ignorespaces This code automates plotting the Euler approximation against the \texttt  {ode45} output to see how they compare for decreasing step size.}}{16}}
+\newlabel{fig:euler_ode45_compare_code}{{A.8}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.9}{\ignorespaces This code calculates the new derivative function with the added carrying capacity scaling to introduce the linearly stable fixed point.}}{16}}
+\newlabel{fig:new_lvderivs_code}{{A.9}{16}}
